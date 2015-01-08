@@ -2,9 +2,10 @@ var myDiv = document.getElementById(‘myDiv’);
 myDiv.style.background = “black”;
 myDiv.style.color = “#ffffff”;
 
-Starts with A-Z a-z _ $
-Continue with A-Z a-z 0-9 _ $
-Valid variables:
+// Starts with A-Z a-z _ $
+// Continue with A-Z a-z 0-9 _ $
+
+// Valid variables:
 var car = “Toyota”;
 var Color = “blue”;
 var _myVar = “something”;
@@ -227,12 +228,167 @@ console.log(z);
 
 var my_array = [0, 1, 2, 3, 4, 5];
 var result = my_array.slice(2, 60);
+console.log(result);
+
+var words = ['these', 'are', 'some', 'words'];
+var result = words.join(' ');
+
+delete my_array[2];
+
+my_array.splice(2, 1);
+my_array.splice(2, 0, 'two');
+console.log(my_array.toString());
+
+
+// JavaScript Functions
+
+function sayHello (name, greeting) {
+	if (typeof name === 'undefined') || {
+		return;
+	}
+	if (typeof greeting === 'undefined') {
+		return 0;
+	}
+	console.log(greeting + "World" + name);
+
+	return name.length;
+}
+
+sayHello("Jim", "Hello");
+console.log(sayHello("Jim", "Hello"));
+
+function arrayCounter (my_array) {
+	if ((typeof my_array === 'undefined') || (my_array == 'string') || (my_array == 'number')) {
+		return 0;
+	}
+	return my_array.length;
+}
+
+var color = 'black';
+var number = 1;
+
+function showColor () {
+	var color = 'green';
+	shape = 'square';
+	number = 2;
+	console.log('Show color', color);
+	console.log(number);
+
+}
+
+showColor();
+console.log('Global color', color);
+console.log(number);
+console.log(shape);
+
+
+var myFunction = function () {
+	console.log('myFunction was called');
+	undeclaredVariable;
+};
+
+var callTwice = function (targetFunction) {
+	targetFunction();
+	targetFunction();
+};
+callTwice(function namedFunction() {
+	console.log("Hello");
+	undeclaredVariable
+});
+myFunction();
+
+
+(function () {
+	var a, b, c;
+	console.log('from another function');
+
+})(1, 'hello')
 
 
 
+// Examples
+
+var button = document.getElementById('action');
+var input = document.getElementById('text_field');
+button.addEventListener('click', function () {
+	console.log('clicked');
+});
+button.addEventListener('click', function () {
+	console.log('other click');
+	input.setAttribute('value', 'hello');
+});
 
 
 
+// JavaScript Objects
+
+var jim = {
+	name: "Jim", 
+	skills: ["JavaScript", "Ruby", "Dancing"],
+	"favorite color": "green",
+	greet: jim.greet
+};
+
+var nick = {
+	name: "Nick", 
+	greet: function (name, mood) {
+		name = name || "You";
+		mood = mood || "good";
+
+		console.log("Hi, " + name + "I am " + this.name + "I am in a " + mood + "mood");
+	}
+};
+
+jim["favorite color"] = "blue";
+console.log(jim.name);
+console.log(jim["favorite color"]);
+jim["greet"]();
+nick.greet();
+var jimGreet = jim.greet;
+jimGreet();
+
+function whatIsThis() {
+	console.log(this);
+
+}
+
+whatIsThis();
+
+var jimGreet = jim.greet;
+jimGreet.call(nick);
+jimGreet.call({});
+jim.greet.call(nick);
+jim.greet.apply(nick);
+
+jim["greet"]("Ryan", "awesome");
+jimGreet.call({name: "Amit"}, "Matt", "bad");
+jim.greet.apply(nick, ["Matt", "bad"]);
+
+var args = ["Michael", "happy"];
+jim.greet.apply(jim, args);
+
+
+var personPrototype = {
+	name: 'A',
+	greet: function (name, mood) {
+		name = name || "You";
+		mood = mood || "good";
+
+		console.log("Hi, " + name + " I am " + this.name + " I am in a " + mood + " mood");
+	},
+	species: 'Homo Sapien'
+
+};
+
+function Person (name) {
+	this.name = name;
+	return this;
+}
+
+Person.prototype = personPrototype;
+jim = new Person('Jim');
+jim.name = 'Jim';
+jim.greet();
 
 
 
