@@ -16,15 +16,22 @@ class Product {
     }
 }
 
-enum Size {
-    case Small, Medium, Large
-    init() {
-        self = .Small
-    }
-}
+//enum Size {
+//    case Small, Medium, Large
+//    init() {
+//        self = .Small
+//    }
+//}
 
 class Clothing: Product {
+    enum Size {
+        case Small, Medium, Large
+        init() {
+            self = .Small
+        }
+    }
     var size: Size = Size()
+    
     let designer: String
     init(title: String, price: Double, designer: String) {
         self.designer = designer

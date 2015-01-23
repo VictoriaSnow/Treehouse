@@ -1,0 +1,4 @@
+$(".warning").hide().show("slow");
+
+
+
